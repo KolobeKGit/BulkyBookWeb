@@ -18,6 +18,7 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.23" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.23" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.23" />
+    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="8.0.23" />
     <PackageVersion Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
     <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
   </ItemGroup>
