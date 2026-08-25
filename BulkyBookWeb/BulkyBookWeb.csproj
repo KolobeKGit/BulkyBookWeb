@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="jQuery" />
     <PackageReference Include="jquery.datatables" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore" />
@@ -32,7 +33,6 @@
     <ProjectReference Include="..\BulkyBook.Utility\BulkyBook.Utility.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewComponents\" />
     <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 </Project>

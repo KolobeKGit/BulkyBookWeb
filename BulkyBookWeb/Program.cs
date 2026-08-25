@@ -29,7 +29,11 @@ builder.Services.ConfigureApplicationCookie(options =>  //Add this code after Id
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
-
+builder.Services.AddAuthentication().AddFacebook(option =>
+{
+    option.AppId = "27952721137754300";
+    option.AppSecret = "e6f97fdf6eee480776d8abe0074caf13";
+});
 //Adding session to the services, also add it in the pipeline
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
