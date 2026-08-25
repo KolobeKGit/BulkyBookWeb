@@ -23,6 +23,8 @@
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <PackageReference Include="Paystack.Net" />
+    <PackageReference Include="Stripe.net" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BulkyBook.DataAccess\BulkyBook.DataAccess.csproj" />
@@ -30,6 +32,7 @@
     <ProjectReference Include="..\BulkyBook.Utility\BulkyBook.Utility.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ViewComponents\" />
     <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 </Project>

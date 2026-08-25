@@ -21,5 +21,7 @@
     <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="8.0.23" />
     <PackageVersion Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
     <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
+    <PackageVersion Include="Paystack.Net" Version="1.1.3" />
+    <PackageVersion Include="Stripe.net" Version="52.0.0" />
   </ItemGroup>
 </Project>

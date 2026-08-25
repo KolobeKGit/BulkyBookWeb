@@ -1,4 +1,5 @@
 ﻿using BulkyBook.Models;
+using BulkyBook.Models.PaystackModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,18 @@ namespace BulkyBook.DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<OrderHearder> OrderHearders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+       
+        
+        public DbSet<InitiateResponse> InitiateResponses { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaystackInitiateRequest> PaystackInitiateRequests { get; set; }
+        public DbSet<PaystackVerifyResponse> PaystackVerifyResponses { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

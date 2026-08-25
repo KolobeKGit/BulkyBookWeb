@@ -8,5 +8,6 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" />
+    <PackageReference Include="Paystack.Net" />
   </ItemGroup>
 </Project>
