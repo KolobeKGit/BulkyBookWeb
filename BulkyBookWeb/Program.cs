@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using BulkyBook.Utility;
 using Stripe;
+using BulkyBook.DataAccess.DbInitializer;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +35,7 @@ builder.Services.AddAuthentication().AddFacebook(option =>
     option.AppId = "27952721137754300";
     option.AppSecret = "e6f97fdf6eee480776d8abe0074caf13";
 });
-//Adding session to the services, also add it in the pipeline
+//Adding session to the services, Configure session management, adding it to the pipeline
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -42,12 +43,14 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
-
+// Register DbInitializer for Dependency Injection
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+// Register Repositories for Dependency Injection
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddRazorPages();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
-builder.Services.AddScoped<IEmailSender, EmailSender>();
+
 
 
 var app = builder.Build();
@@ -66,10 +69,21 @@ StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey"
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession()
-; app.MapRazorPages();
+app.UseSession();
+SeedDatabase();
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+//Invoke Initializer method
+void SeedDatabase()
+{
+    using(var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}
