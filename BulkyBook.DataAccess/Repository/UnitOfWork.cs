@@ -1,4 +1,5 @@
 ﻿using BulkyBook.DataAccess.Repository.IRepository;
+using BulkyBook.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,12 @@ namespace BulkyBook.DataAccess.Repository
         public IOrderHearderRepository OrderHearder { get; private set; }
         public IOrderDetailRepository OrderDetail { get; private set; }
         public IPaymentRepository Payment { get; private set; }
+        public IProductImageRepository ProductImage { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
+            ProductImage = new ProductImageRepository(_db);
             Category = new CategoryRepository(_db);
             Product = new ProductRepository(_db);
             Company = new CompanyRepository(_db);
